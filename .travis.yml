@@ -1,22 +1,23 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - npm install phantomjs-prebuilt
-
+- npm config set spin false
+- npm install -g bower
+- npm install phantomjs-prebuilt
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: MjA5glVYeskh+bDgfJI3XSjH3+3kzK1254XNQoX1JKVQfdD5uqZ/Qg/Q0rahhLBQxcW7bOoKvUzwbk6L9v/dXLjxhN17rhrhxuNrsZlp1vsEoPuV8dnDSKte8vPYHVRDmiZrrO27AFoibL92Zkt9DLRzc5Zc0OsRm1LIply/ZYUXrNhJddNqXkWozHK+nsaCga6SkerYli0HgeH5Bbej15MXbdaqsTfwJoSvH5kLKT7yhE344g4gvCBrtB7jnu715L5LzaDI2NUJTNOsCEhoeBaZBDng4XFTgD3ynDLHJcEzyLymFzBthNHczoC+1qObnJCXE32MNk3XgDDiZxGGOnQ0uFU1Sr2dE2rTzbtXOQa4DAJqJrFNUxiAr4Y4EUETYScxlMwKEDQXuz+iQD2b8yoeq7VYmAYy9isvIT8ZVaMoUgcwi8NQEzIRKQvT99MKpO7BBiJliTptn0XzXQ5K6YdX0/3PmzSMvNCJLZ3CHKuTt5AdmehZuTWHozeG41vE7OIRBjJpfYFpKGlw/CcnuV5yijRcQQXVoEpRExwjdtlC/RT+PXHNjm4xpB9mt5aMj0yzM4y24VWW5CNChrHNsObcNlIr23ZaIL3MaYcXCKcfIWSCylGt1M8LFzrUfCDgCj0lP3Hobl0uIC1GtHdnAZkHAmi11/c6uOYs5jsq8Yo=
+  app: secure-garden-69380
+  on:
+    repo: fabfou/tuto-peepchat-ui
